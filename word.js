@@ -15,8 +15,7 @@ word.prototype.isGuesscorrect=function(guess){
         }
         this.currentWordstring=this.currentWordarray.toString();
     }
-    else
-        console.log("im here");
+    else{
         this.currentWordarray=[];
         for( var i=0;i<this.currentWord.length;i++)
         {
@@ -26,7 +25,7 @@ word.prototype.isGuesscorrect=function(guess){
         }
         this.currentWordstring=this.currentWordarray.toString();
     }
-    
+}
 word.prototype.displayWord=function(){
     this.currentWordstring=this.currentWordarray.join(" ");
 
