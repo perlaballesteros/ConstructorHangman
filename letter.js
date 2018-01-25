@@ -18,13 +18,10 @@ letter.prototype.correctlyGuessed=function(guess){
     //console.log(this.correctGuess);
     if(guess===this.currentLetter){
         this.correctGuess=true;
-        
-
     }
     else{
-        this.correctGuess=false;
-        
-        }
+        this.correctGuess=false;    
+    }
 }
 letter.prototype.startingOvervars=function(){
     this.correctGuess=false;

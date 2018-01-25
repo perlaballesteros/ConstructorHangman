@@ -4,6 +4,8 @@ var inquirer = require('inquirer');
 //var userGuess=process.argv[2].toUpperCase();
 
 var guessesAllowed=10;
+var previousBlanks;
+var i=0;
 var wordtoGuess = new word("fleeer");
 
 //first run displaying
@@ -28,6 +30,10 @@ function blanks(){
     }
         return currentBlanks;
 }
+function resetvalues(){
+    guessesAllowed=10;
+    previousBlanks;
+}
 
 //DISPLAY BLANG BEFORE GESSING
 firstDisplay();
@@ -42,23 +48,42 @@ function inquire(){
           message: "Guess a Letter!"
         }
     ]).then(function(userInput) {
-        var numberoftries=10;
-        var previousBlanks=blanks();
-        console.log("intial Blanks "+previousBlanks);
+       
+        console.log("previous "+previousBlanks );
+        if(i==0){
+        previousBlanks=wordtoGuess.currentWordarray.length;
+            console.log("i= "+i+" previousblanks "+previousBlanks);
+        i++;
+        }
         lookingforGuess(userInput.guess);
+        
         var currentBlanks=blanks();
         console.log("currentBlanks "+currentBlanks);
 
-        if(currentBlanks<previousBlanks){
-            console.log("CORRECT");
-        }
-        if(currentBlanks===previousBlanks){
-            numberoftries--;
-            console.log("INCORRECT");
-        }
+        
         if(currentBlanks===0){
             console.log("CONGRATS YOU HAVE GUESSED THE WORD");
+            //nextWord
         }
-        
+
+        else if (currentBlanks===previousBlanks){
+            guessesAllowed--;
+            console.log("INCORRECT");
+            if(guessesAllowed!==0){
+                inquire();
+            }
+            else{
+                console.log("GAMEOVER")
+                //SET GUESSES ALLOWED TO TEN
+                resetvalues()
+            }
+        }
+        else if (currentBlanks<previousBlanks){
+            console.log("CORRECT");
+            inquire();
+            
+        }
+        previousBlanks=currentBlanks;
+        console.log("previous"+previousBlanks);
     } );
 }

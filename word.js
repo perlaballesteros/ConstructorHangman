@@ -7,21 +7,24 @@ function word (Word){
 
 word.prototype.isGuesscorrect=function(guess){
     if (guess===1){
-
         for( var i=0;i<this.currentWord.length;i++)
         {
             var letterfromWord=new letter(this.currentWord[i]);
             this.currentWordarray.push(letterfromWord.display());
         }
         this.currentWordstring=this.currentWordarray.toString();
+        
     }
     else{
-        this.currentWordarray=[];
+        //this.currentWordarray=[];
         for( var i=0;i<this.currentWord.length;i++)
         {
             var letterfromWord=new letter(this.currentWord[i]);
-            letterfromWord.correctlyGuessed(guess);
-            this.currentWordarray.push(letterfromWord.display());
+           letterfromWord.correctlyGuessed(guess);
+            if(letterfromWord.correctGuess!==false){
+                this.currentWordarray[i]=letterfromWord.display();
+            }
+            
         }
         this.currentWordstring=this.currentWordarray.toString();
     }
