@@ -2,6 +2,7 @@ function letter(Letter){
     
     this.currentLetter=Letter.toUpperCase();
     this.correctGuess=false;
+    this.letterGuessed=0;
 }
 
 letter.prototype.display=function(){
@@ -18,12 +19,15 @@ letter.prototype.correctlyGuessed=function(guess){
     if(guess===this.currentLetter){
         this.correctGuess=true;
         
+
     }
     else{
         this.correctGuess=false;
-    }
-    //console.log(this.correctGuess);
+        
+        }
 }
-
-
+letter.prototype.startingOvervars=function(){
+    this.correctGuess=false;
+    this.letterGuessed=0;
+}
 module.exports=letter;
