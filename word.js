@@ -16,7 +16,6 @@ word.prototype.isGuesscorrect=function(guess){
         
     }
     else{
-        //this.currentWordarray=[];
         for( var i=0;i<this.currentWord.length;i++)
         {
             var letterfromWord=new letter(this.currentWord[i]);

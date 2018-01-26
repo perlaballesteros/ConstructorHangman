@@ -25,6 +25,5 @@ letter.prototype.correctlyGuessed=function(guess){
 }
 letter.prototype.startingOvervars=function(){
     this.correctGuess=false;
-    this.letterGuessed=0;
 }
 module.exports=letter;
