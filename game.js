@@ -118,18 +118,3 @@ function runGame(){
 runGame();
 
 
-
-//FUTURE IMPROVEMNTS
-//WILL USE THIS FUNCTION TO READ FROM FILE
-/*function readWord(wordsIndex){
-    fs.readFile("words.txt", "utf8", function(error, data) {
-        if (error) {
-            return console.log(error);
-          }
-          var dataArray=data.split(",");
-          var currentWord=dataArray[wordsIndex];
-          wordsIndex++;
-          return currentWord;
-          
-    });
-}*/
