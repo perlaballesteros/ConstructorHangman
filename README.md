@@ -1,6 +1,6 @@
 # ConstructorHangman
 ## By Perla E. Ballesteros
-Bamazon Customer Interface
+
 ![constructorHangman gif](./constructorHangman.gif)
 Bamazon Manager Interface
 
